@@ -1,0 +1,9 @@
+<application>
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="fa1e4c65-9ff0-4d7a-919b-edfefba0f2b2" name="gruntowa" url="http://lukstar">
+        <fileTransfer port="0" accessType="LOCAL" />
+      </webServer>
+    </option>
+  </component>
+</application>
