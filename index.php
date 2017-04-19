@@ -6,17 +6,31 @@
  * Time: 09:23
  */
 
-require 'functions.php';
 
-$function = $_GET["function"];
-$value = $_GET["value"];
+require 'config.server.php';
 
-switch($function)
+// get the HTTP method
+$method = $_SERVER['REQUEST_METHOD'];
+
+// response from server
+$server_response=array();
+
+
+switch($method)
 {
-    case 'getName':
-        echo(getName($value));
+    case 'GET':
+        // get all data from GET
+        if (isset($_SERVER['PATH_INFO'])) { $request = $_SERVER['PATH_INFO']; }
+        else { $request="/none"; }
+        $request = explode("/", $request);
+        $server_response = getName($db, $request);
         break;
 
-    default:
+    case 'POST':
+        // recive input data for POST method
+        $input_data = json_decode(file_get_contents('php://input'), true);
+        $server_response = addName($db, $input_data);
         break;
 }
+
+echo(json_encode($server_response));
