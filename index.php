@@ -22,4 +22,19 @@ switch($method)
         $server_response = getUser($request[1]);
         echo($server_response);
         break;
+
+    case 'POST':
+        $post_data = file_get_contents(('php://input'), true);
+        if (json_decode($post_data) != NULL)
+        {
+            echo('Json - OK!<br />');
+            $rest_response = addUser(json_decode($post_data));
+        }
+        else
+        {
+            $rest_response = 'Error';
+        }
+
+        echo($rest_response);
+        break;
 }
