@@ -2,35 +2,39 @@
 /**
  * Created by PhpStorm.
  * User: Luk-Star
- * Date: 19.04.2017
- * Time: 09:23
+ * Date: 16.05.2017
+ * Time: 19:13
  */
 
-
-require 'config.server.php';
+require 'database.config.php';
+require 'api.methods.php';
 
 // get the HTTP method
 $method = $_SERVER['REQUEST_METHOD'];
 
-// response from server
-$server_response=array();
-
-
 switch($method)
 {
     case 'GET':
-        // get all data from GET
+        // echo($_SERVER['PATH_INFO']);
         if (isset($_SERVER['PATH_INFO'])) { $request = $_SERVER['PATH_INFO']; }
         else { $request="/none"; }
         $request = explode("/", $request);
-        $server_response = getName($db, $request);
+        $server_response = getUser($request[1]);
+        echo($server_response);
         break;
 
     case 'POST':
-        // recive input data for POST method
-        $input_data = json_decode(file_get_contents('php://input'), true);
-        $server_response = addName($db, $input_data);
+        $post_data = file_get_contents(('php://input'), true);
+        if (json_decode($post_data) != NULL)
+        {
+            echo('Json - OK!<br />');
+            $rest_response = addUser(json_decode($post_data));
+        }
+        else
+        {
+            $rest_response = 'Error';
+        }
+
+        echo($rest_response);
         break;
 }
-
-echo(json_encode($server_response));
