@@ -8,6 +8,8 @@
 
 require 'database.config.php';
 require 'api.methods.php';
+require 'database.log.php';
+
 
 // get the HTTP method
 $method = $_SERVER['REQUEST_METHOD'];
@@ -25,10 +27,10 @@ switch($method)
 
     case 'POST':
         $post_data = file_get_contents(('php://input'), true);
+
         if (json_decode($post_data) != NULL)
         {
-            echo('Json - OK!<br />');
-            $rest_response = addUser(json_decode($post_data));
+            $rest_response = addUser(json_decode($post_data, true));
         }
         else
         {
