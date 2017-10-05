@@ -1,0 +1,9 @@
+<application>
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a5450759-04ca-4055-88f0-aaf8e83fd729" name="Timesheet" url="http://localhost/timesheet">
+        <fileTransfer port="0" accessType="LOCAL" />
+      </webServer>
+    </option>
+  </component>
+</application>
