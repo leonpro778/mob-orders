@@ -4,6 +4,7 @@
   </component>
   <component name="XmlEditorOptions">
     <option name="automaticallyInsertClosingTag" value="false" />
+    <option name="insertQuotesForAttributeValue" value="false" />
     <option name="syncTagEditing" value="false" />
   </component>
 </application>
