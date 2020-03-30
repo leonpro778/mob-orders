@@ -4,6 +4,12 @@
       <webServer id="a5450759-04ca-4055-88f0-aaf8e83fd729" name="Timesheet" url="http://localhost/timesheet">
         <fileTransfer port="0" accessType="LOCAL" />
       </webServer>
+      <webServer id="29b5d98a-2604-4ab1-95de-2f1f6209931f" name="localhost" url="http://localhost/shop">
+        <fileTransfer port="0" accessType="LOCAL" />
+      </webServer>
+      <webServer id="f99e903d-ef43-4b4a-aecd-8a823372c443" name="localhost" url="http://lukstar/shop">
+        <fileTransfer port="0" accessType="LOCAL" />
+      </webServer>
     </option>
   </component>
 </application>
